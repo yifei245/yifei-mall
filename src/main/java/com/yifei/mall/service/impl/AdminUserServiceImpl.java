@@ -18,6 +18,7 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Override
     public AdminUser login(String userName, String password) {
+        // TODO: 2023/9/18单纯的md5存贮验证不安全，彩虹表可以暴力破解
         String passwordMd5 = MD5Util.MD5Encode(password, Constants.UTF_ENCODING);
         return adminUserMapper.login(userName, passwordMd5);
     }
